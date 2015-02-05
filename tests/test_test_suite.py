@@ -13,17 +13,17 @@ class TestTestSuite(unittest.TestCase):
     def test_add_test(self):
         current_tests = self.test_suite.get_contained_tests()
 
-        self.assertEqual(1, current_tests)
+        self.assertEqual('successful login', current_tests)
 
     def test_add_test_empty_name(self):
         self.test_suite.add_test(None)
 
         current_tests = self.test_suite.get_contained_tests()
 
-        self.assertEqual(1, current_tests)
+        self.assertEqual(1, len(current_tests))
 
     def test_remove_test(self):
-        self.test_suite.remove_test()
+        self.test_suite.remove_test('successful login')
         current_tests = self.test_suite.get_contained_tests()
 
         self.assertEqual(0, current_tests)
